@@ -12,7 +12,9 @@ templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 app = FastAPI(title="Detection Lab UI")
 
-app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
+static_dir = BASE_DIR / "static"
+if static_dir.exists():
+    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
 
 @app.get("/", response_class=HTMLResponse)
