@@ -19,6 +19,10 @@ def init_schema(engine: Engine) -> None:
               country text,
               user_agent text,
               ts timestamptz,
+              success boolean,
+              failure_reason text,
+              mfa_used boolean,
+              device_id text,
               raw jsonb
             );
         """))
@@ -27,9 +31,13 @@ def init_schema(engine: Engine) -> None:
               id serial primary key,
               event_name text,
               user_identity text,
+              user_type text,
+              role_arn text,
               source_ip text,
               aws_region text,
+              user_agent text,
               ts timestamptz,
+              request_parameters jsonb,
               raw jsonb
             );
         """))
