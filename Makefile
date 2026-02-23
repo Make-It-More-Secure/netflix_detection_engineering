@@ -16,3 +16,6 @@ run:
 
 test:
 	$(PYTHON) -m pytest -q
+
+ui:
+	$(PYTHON) -m uvicorn ui.app:app --reload

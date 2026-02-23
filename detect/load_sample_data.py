@@ -1,7 +1,10 @@
 import json
 from datetime import datetime
 from pathlib import Path
+
 from sqlalchemy import text
+from psycopg.types.json import Json
+
 from .db import get_engine
 
 
@@ -23,7 +26,7 @@ def load_auth_logs(path: Path) -> None:
                     "country": rec["country"],
                     "user_agent": rec["user_agent"],
                     "ts": datetime.fromisoformat(rec["ts"].replace("Z", "+00:00")),
-                    "raw": json.dumps(rec),
+                    "raw": Json(rec),
                 },
             )
 

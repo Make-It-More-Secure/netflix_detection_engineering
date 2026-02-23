@@ -1,7 +1,10 @@
 from pathlib import Path
 from typing import List
 import json
+
 from sqlalchemy import text
+from psycopg.types.json import Json
+
 from .models import Alert
 from .db import get_engine
 
@@ -36,6 +39,6 @@ def write_alerts(alerts: List[Alert], path: Path) -> None:
                     "severity": a.severity,
                     "risk_score": a.risk_score,
                     "created_at": a.created_at,
-                    "details": json.dumps(a.details),
+                    "details": Json(a.details),
                 },
             )
