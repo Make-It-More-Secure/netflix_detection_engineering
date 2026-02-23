@@ -1,4 +1,6 @@
 from datetime import datetime, timezone
+import hashlib
+import json
 from typing import List
 
 from sqlalchemy import text
@@ -10,6 +12,20 @@ from detect.rule_loader import RuleSpec
 
 # Very naive: if same user changes country within 30 minutes -> alert
 WINDOW_MINUTES = 30
+
+
+def _stable_alert_id(rule_id: str, row: dict) -> str:
+    payload = {
+        "user_id": row["user_id"],
+        "from_country": row["prev_country"],
+        "to_country": row["country"],
+        "from_ts": row["prev_ts"].isoformat(),
+        "to_ts": row["ts"].isoformat(),
+    }
+    digest = hashlib.sha256(
+        json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()[:16]
+    return f"{rule_id}-{digest}"
 
 
 def run(engine: Engine, rule: RuleSpec) -> List[Alert]:
@@ -38,10 +54,10 @@ def run(engine: Engine, rule: RuleSpec) -> List[Alert]:
 
     alerts: List[Alert] = []
     now = datetime.now(timezone.utc)
-    for idx, r in enumerate(rows):
+    for r in rows:
         alerts.append(
             Alert(
-                id=f"{rule.id}-{idx}",
+                id=_stable_alert_id(rule.id, r),
                 rule_id=rule.id,
                 rule_name=rule.name,
                 severity=rule.severity,

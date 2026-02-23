@@ -8,6 +8,7 @@ from detect.db import get_engine
 from detect.rule_loader import load_rules
 
 BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 app = FastAPI(title="Detection Lab UI")
@@ -24,7 +25,7 @@ def index(request: Request):
 
 @app.get("/rules", response_class=HTMLResponse)
 def list_rules(request: Request):
-    rules_dir = Path("detections/rules")
+    rules_dir = PROJECT_ROOT / "detections" / "rules"
     rules = load_rules(rules_dir)
     return templates.TemplateResponse("rules.html", {"request": request, "rules": rules})
 
