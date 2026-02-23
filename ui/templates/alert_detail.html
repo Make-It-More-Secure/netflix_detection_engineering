@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Alert {{ alert.id }}</h2>
+<p><strong>Rule:</strong> {{ alert.rule_id }} – {{ alert.rule_name }}</p>
+<p><strong>Severity:</strong> {{ alert.severity }}</p>
+<p><strong>Risk score:</strong> {{ alert.risk_score }}</p>
+<p><strong>Created:</strong> {{ alert.created_at }}</p>
+
+<h3>Details (raw JSON)</h3>
+<pre>{{ alert.details | tojson(indent=2) }}</pre>
+
+<a href="/alerts">Back to alerts</a>
+{% endblock %}

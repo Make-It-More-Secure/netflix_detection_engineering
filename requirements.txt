@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+jinja2
+
+sqlalchemy
+psycopg[binary]
+
+pydantic
+pydantic-settings
+
+click
+pyyaml
+
+pytest
+

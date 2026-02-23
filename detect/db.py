@@ -11,33 +11,36 @@ def get_engine() -> Engine:
 
 def init_schema(engine: Engine) -> None:
     with engine.begin() as conn:
-        conn.execute(
-            text(
-                """
-                create table if not exists auth_logs (
-                id serial primary key,
-                user_id text,
-                ip text,
-                country text,
-                user_agent text,
-                ts timestamptz,
-                raw jsonb
-                );
-                """
-            )
-        )
-        conn.execute(
-            text(
-                """
-                create table if not exists cloudtrail_logs (
-                id serial primary key,
-                event_name text,
-                user_identity text,
-                source_ip text,
-                aws_region text,
-                ts timestamptz,
-                raw jsonb
-                );
-                """
-            )
-        )
+        conn.execute(text("""
+            create table if not exists auth_logs (
+              id serial primary key,
+              user_id text,
+              ip text,
+              country text,
+              user_agent text,
+              ts timestamptz,
+              raw jsonb
+            );
+        """))
+        conn.execute(text("""
+            create table if not exists cloudtrail_logs (
+              id serial primary key,
+              event_name text,
+              user_identity text,
+              source_ip text,
+              aws_region text,
+              ts timestamptz,
+              raw jsonb
+            );
+        """))
+        conn.execute(text("""
+            create table if not exists alerts (
+              id text primary key,
+              rule_id text,
+              rule_name text,
+              severity text,
+              risk_score int,
+              created_at timestamptz,
+              details jsonb
+            );
+        """))

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <title>Detection Lab</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 20px; }
+    nav a { margin-right: 12px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; }
+    th { background: #f4f4f4; text-align: left; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/rules">Rules</a>
+    <a href="/alerts">Alerts</a>
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>
