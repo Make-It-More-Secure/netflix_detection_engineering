@@ -1,0 +1,13 @@
+id: DET-001
+name: Impossible Travel Login
+description: Detect logins from distant countries in a short time window.
+enabled: true
+severity: HIGH
+risk_score: 90
+type: python # or sql
+datasource: auth_logs
+logic_module: det_001_impossible_travel
+tags:
+  - auth
+  - anomaly
+  

@@ -1,0 +1,16 @@
+.PHONY: up initdb seed run test
+
+up:
+\tdocker compose up -d
+
+initdb:
+\tpython -m detect.cli initdb
+
+seed:
+\tpython -m detect.load_sample_data
+
+run:
+\tpython -m detect.cli run
+
+test:
+\tpytest -q

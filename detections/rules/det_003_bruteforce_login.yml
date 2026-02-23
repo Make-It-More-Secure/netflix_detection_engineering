@@ -1,0 +1,12 @@
+id: DET-003
+name: Bruteforce Login
+description: Detect multiple failed login attempts from the same source.
+enabled: false
+severity: HIGH
+risk_score: 75
+type: python
+datasource: auth_logs
+logic_module: det_003_bruteforce_login
+tags:
+  - auth
+  - bruteforce
