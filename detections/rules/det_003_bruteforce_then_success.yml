@@ -1,0 +1,12 @@
+id: DET-003
+name: Brute Force Followed by Success
+description: Multiple failed logins followed by success for a user from same IP within 10 minutes.
+enabled: true
+severity: high
+risk_score: 80
+type: python
+datasource: auth_logs
+logic_module: det_003_bruteforce_then_success
+tags:
+  - auth
+  - brute_force
