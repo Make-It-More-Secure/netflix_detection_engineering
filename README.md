@@ -186,6 +186,5 @@ pytest tests/test_det_001_impossible_travel.py -v  # Single test
 
 ## 📚 Learn More
 
-- [AUDIT_REPORT.md](AUDIT_REPORT.md) - Production readiness audit
 - [FIXES_SUMMARY.md](FIXES_SUMMARY.md) - Recent improvements
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Development guidelines
