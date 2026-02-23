@@ -171,7 +171,6 @@ psql -U detect -h localhost -d detectlab
 - ✅ Error handling prevents cascading failures
 - ✅ Database connection pooling configured
 - ✅ Query indices optimized
-- 📖 See [AUDIT_REPORT.md](AUDIT_REPORT.md) for production checklist
 
 ---
 
