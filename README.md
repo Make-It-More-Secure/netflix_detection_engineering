@@ -5,7 +5,13 @@ A **security detection engine** that runs rules over logs and generates alerts. 
 **Tech Stack:** Python 3.11 • PostgreSQL • SQLAlchemy • FastAPI (UI) • pytest
 
 ---
+## Getting Started
+git clone git@github.com:Make-It-More-Secure/netflix_detection_engineering.git
+cd netflix_detection_engineering
+python3 -m venv .venv
+source .venv/bin/activate   # or .venv\Scripts\activate on Windows
 
+---
 ## 🚀 Quick Start (2 min)
 
 ```bash
