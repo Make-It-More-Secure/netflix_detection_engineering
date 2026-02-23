@@ -4,6 +4,31 @@ A **security detection engine** that runs rules over logs and generates alerts. 
 
 **Tech Stack:** Python 3.11 • PostgreSQL • SQLAlchemy • FastAPI (UI) • pytest
 
+
+---
+## Prerequisites
+
+- Python 3.11+
+- Docker and Docker Compose (for Postgres and MinIO)
+- Git
+
+## Setup
+
+### 1. Clone and virtual environment
+
+```bash
+git clone git@github.com:Make-It-More-Secure/netflix_detection_engineering.git
+cd netflix_detection_engineering
+python3 -m venv .venv
+source .venv/bin/activate   # or .venv\Scripts\activate on Windows
+```
+
+### 2. Install dependencies
+
+```bash
+pip install "psycopg[binary]" sqlalchemy pydantic pydantic-settings click pyyaml pytest
+```
+
 ---
 ## Getting Started
 git clone git@github.com:Make-It-More-Secure/netflix_detection_engineering.git
