@@ -1,3 +1,9 @@
-{"user_id": "alice", "ip": "1.1.1.1", "country": "US", "user_agent": "Chrome", "ts": "2025-02-01T10:00:00Z"}
-{"user_id": "alice", "ip": "2.2.2.2", "country": "RU", "user_agent": "Chrome", "ts": "2025-02-01T10:20:00Z"}
-{"user_id": "bob", "ip": "3.3.3.3", "country": "US", "user_agent": "Firefox", "ts": "2025-02-01T11:00:00Z"}
+{"user_id": "alice", "ip": "1.1.1.1", "country": "US", "user_agent": "Chrome", "ts": "2025-02-01T10:00:00Z", "success": true}
+{"user_id": "alice", "ip": "2.2.2.2", "country": "RU", "user_agent": "Chrome", "ts": "2025-02-01T10:20:00Z", "success": false}
+{"user_id": "bob", "ip": "3.3.3.3", "country": "US", "user_agent": "Firefox", "ts": "2025-02-01T11:00:00Z", "success": true}
+{"user_id": "attacker", "ip": "4.4.4.4", "country": "CN", "user_agent": "curl", "ts": "2025-02-02T14:00:00Z", "success": false}
+{"user_id": "attacker", "ip": "4.4.4.4", "country": "CN", "user_agent": "curl", "ts": "2025-02-02T14:01:00Z", "success": false}
+{"user_id": "attacker", "ip": "4.4.4.4", "country": "CN", "user_agent": "curl", "ts": "2025-02-02T14:02:00Z", "success": false}
+{"user_id": "attacker", "ip": "4.4.4.4", "country": "CN", "user_agent": "curl", "ts": "2025-02-02T14:03:00Z", "success": false}
+{"user_id": "attacker", "ip": "4.4.4.4", "country": "CN", "user_agent": "curl", "ts": "2025-02-02T14:04:00Z", "success": false}
+{"user_id": "attacker", "ip": "4.4.4.4", "country": "CN", "user_agent": "curl", "ts": "2025-02-02T14:05:00Z", "success": true}

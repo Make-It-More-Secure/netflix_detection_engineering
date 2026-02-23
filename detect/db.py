@@ -11,8 +11,13 @@ def get_engine() -> Engine:
 
 def init_schema(engine: Engine) -> None:
     with engine.begin() as conn:
+        # Drop existing tables to ensure schema matches
+        conn.execute(text("drop table if exists alerts;"))
+        conn.execute(text("drop table if exists cloudtrail_logs;"))
+        conn.execute(text("drop table if exists auth_logs;"))
+        
         conn.execute(text("""
-            create table if not exists auth_logs (
+            create table auth_logs (
               id serial primary key,
               user_id text,
               ip text,
@@ -27,7 +32,7 @@ def init_schema(engine: Engine) -> None:
             );
         """))
         conn.execute(text("""
-            create table if not exists cloudtrail_logs (
+            create table cloudtrail_logs (
               id serial primary key,
               event_name text,
               user_identity text,
@@ -42,7 +47,7 @@ def init_schema(engine: Engine) -> None:
             );
         """))
         conn.execute(text("""
-            create table if not exists alerts (
+            create table alerts (
               id text primary key,
               rule_id text,
               rule_name text,
